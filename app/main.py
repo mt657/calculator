@@ -1,13 +1,17 @@
-# additon function
+'''Main calculator functions'''
 
 def addition(a,b):
-        return a + b
+    '''Additon function'''
+    return a + b
 
 def subtraction(a,b):
-        return a - b
+    '''Subraction function'''
+    return a - b
 
 def multiplication(a,b):
-        return a * b 
+    '''Multiplication function'''
+    return a * b
 
 def divison(a,b):
-        return a/b
+    '''Divison function'''
+    return a/b
