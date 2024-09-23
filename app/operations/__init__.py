@@ -12,6 +12,6 @@ def multiplication(a,b):
     '''Multiplication function'''
     return a * b
 
-def divison(a,b):
-    '''Divison function'''
+def division(a,b):
+    '''Division function'''
     return a/b
