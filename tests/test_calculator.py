@@ -4,7 +4,7 @@ from app.calculator import Calculator  # Assuming the class is in a file named c
 # Fixture to create a Calculator instance for each test
 @pytest.fixture
 def calc():
-    return Calculator()
+    return Calculator.create()
 
 @pytest.mark.parametrize("a, b, expected", [
     (10, 5, 15),
