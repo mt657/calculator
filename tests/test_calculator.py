@@ -1,9 +1,12 @@
+# pylint: disable=redefined-outer-name
+'''Calculator paramertized tests'''
 import pytest
 from app.calculator import Calculator  # Assuming the class is in a file named calculator.py
 
 # Fixture to create a Calculator instance for each test
 @pytest.fixture
-def calc():
+def calculator():
+    '''create an instance of calculator'''
     return Calculator.create()
 
 @pytest.mark.parametrize("a, b, expected", [
@@ -12,8 +15,9 @@ def calc():
     (-1, -1, -2),
     (0, 0, 0),
 ])
-def test_add(calc, a, b, expected):
-    assert calc.add(a, b) == expected
+def test_add(calculator, a, b, expected):
+    '''test if the addition function works'''
+    assert calculator.add(a, b) == expected
 
 @pytest.mark.parametrize("a, b, expected", [
     (10, 5, 5),
@@ -21,8 +25,9 @@ def test_add(calc, a, b, expected):
     (-1, -1, 0),
     (0, 0, 0),
 ])
-def test_subtract(calc, a, b, expected):
-    assert calc.subtract(a, b) == expected
+def test_subtract(calculator, a, b, expected):
+    '''test if the subtraction function works'''
+    assert calculator.subtract(a, b) == expected
 
 @pytest.mark.parametrize("a, b, expected", [
     (10, 5, 50),
@@ -30,8 +35,9 @@ def test_subtract(calc, a, b, expected):
     (-1, -1, 1),
     (0, 10, 0),
 ])
-def test_multiply(calc, a, b, expected):
-    assert calc.multiply(a, b) == expected
+def test_multiply(calculator, a, b, expected):
+    '''test if the multiplication function works'''
+    assert calculator.multiply(a, b) == expected
 
 @pytest.mark.parametrize("a, b, expected", [
     (10, 5, 2),
@@ -39,9 +45,11 @@ def test_multiply(calc, a, b, expected):
     (-10, -2, 5),
     (0, 1, 0),
 ])
-def test_divide(calc, a, b, expected):
-    assert calc.divide(a, b) == expected
+def test_divide(calculator, a, b, expected):
+    '''test if the division function works'''
+    assert calculator.divide(a, b) == expected
 
 # Test for division by zero
-def test_divide_by_zero(calc):
-    assert calc.divide(10, 0) == "Error: Division by zero!"
+def test_divide_by_zero(calculator):
+    '''test if the divide by zero error is properly displayed'''
+    assert calculator.divide(10, 0) == "Error: Division by zero!"
