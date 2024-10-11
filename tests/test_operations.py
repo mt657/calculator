@@ -1,42 +1,71 @@
-''' My Calculator Test'''
+# pylint: disable=redefined-outer-name
+"""
+Tests for the individual operation functions in the operations module.
+Each test verifies the correctness of basic mathematical operations.
+"""
 import pytest
-from app.operations import addition, division, multiplication, subtraction
+from app.operations import addition, subtraction, multiplication, division
 
-
-# Parameterized test for addition
 @pytest.mark.parametrize("a, b, expected", [
-    (1, 1, 2), (2, 3, 5), (-1, -1, -2), (0, 0, 0)
+    (10, 5, 15),
+    (1, 1, 2),
+    (-1, -1, -2),
+    (0, 0, 0),
 ])
 def test_addition(a, b, expected):
-    '''Addition function'''
+    """
+    Test the addition function.
+    
+    Verifies that the addition function correctly adds two numbers.
+    """
     assert addition(a, b) == expected
 
-# Parameterized test for subtraction
 @pytest.mark.parametrize("a, b, expected", [
-    (1, 1, 0), (5, 3, 2), (-1, -1, 0), (0, 5, -5)
+    (10, 5, 5),
+    (1, 1, 0),
+    (-1, -1, 0),
+    (0, 0, 0),
 ])
 def test_subtraction(a, b, expected):
-    '''Subtraction function'''
+    """
+    Test the subtraction function.
+    
+    Verifies that the subtraction function correctly subtracts the second number from the first.
+    """
     assert subtraction(a, b) == expected
 
-# Parameterized test for multiplication
 @pytest.mark.parametrize("a, b, expected", [
-    (2, 2, 4), (3, 5, 15), (0, 5, 0), (-1, 1, -1)
+    (10, 5, 50),
+    (1, 1, 1),
+    (-1, -1, 1),
+    (0, 10, 0),
 ])
 def test_multiplication(a, b, expected):
-    '''Multiplication function'''
+    """
+    Test the multiplication function.
+    
+    Verifies that the multiplication function correctly multiplies two numbers.
+    """
     assert multiplication(a, b) == expected
 
-# Parameterized test for division
 @pytest.mark.parametrize("a, b, expected", [
-    (2, 2, 1), (10, 5, 2), (9, 3, 3)
+    (10, 5, 2),
+    (1, 1, 1),
+    (-10, -2, 5),
+    (0, 1, 0),
 ])
 def test_division(a, b, expected):
-    '''Division function'''
+    """
+    Test the division function.
+    
+    Verifies that the division function correctly divides the first number by the second.
+    """
     assert division(a, b) == expected
 
-# Test for division by zero exception
-def test_division_by_zero_exception():
-    '''Division function testing that I get the exception divide by zero'''
-    with pytest.raises(ZeroDivisionError):
-        division(10, 0)
+def test_division_by_zero():
+    """
+    Test the division by zero case.
+    
+    Verifies that the division function returns an error message when dividing by zero.
+    """
+    assert division(10, 0) == "Error: Division by zero!"
