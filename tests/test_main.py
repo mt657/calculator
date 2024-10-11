@@ -1,5 +1,7 @@
-import pytest
+# pylint: disable=redefined-outer-name
+"Tests for the main.py"
 from unittest.mock import patch
+import pytest
 from main import repl  # Ensure this import is correct based on your file structure
 
 @pytest.fixture
